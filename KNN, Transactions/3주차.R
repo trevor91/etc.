@@ -1,46 +1,46 @@
-#¿¬°ü¼ººĞ¼®
+#ì—°ê´€ì„±ë¶„ì„
 library(arules)
 
-data<-read.csv("C:\\toBig's\\3ÁÖÂ÷\\2012°øÅë.csv")
+data<-read.csv("C:...csv")
 head(data)
 str(data)
-data<-data[c(-1,-2)] #°¡±¸¹øÈ£, ³âµµ »è¤¸
+data<-data[c(-1,-2)] #ê°€êµ¬ë²ˆí˜¸, ë…„ë„ ì‚­ã…ˆ
 str(data)
 
 #data.frame -> transactions
-data$°¡±¸ÁÖ.¼ºº°<-factor(data$°¡±¸ÁÖ.¼ºº°, levels = c(1,2), labels = c("³²ÀÚ","¿©ÀÚ") )
-data$°¡±¸ÁÖ.µ¿°Å¿©ºÎ<-factor(data$°¡±¸ÁÖ.µ¿°Å¿©ºÎ, levels = c(1,2,3,4), labels = c("1ÀÎ °¡±¸","°°ÀÌ »ì°íÀÖÀ½","µû·Î »ì°íÀÖÀ½(ÇĞ¾÷,Ãë¾÷)", "µû·Î »ì°íÀÖÀ½(±ºÀÎ"))
-data$°¡±¸ÁÖ.±³À°Á¤µµ_ÇĞ±³<-factor(data$°¡±¸ÁÖ.±³À°Á¤µµ_ÇĞ±³, levels = c(1,2,3,4,5,6,7), labels = c("¾È¹ŞÀ½","ÃÊµîÇĞ±³","ÁßÇĞ±³", "°íµîÇĞ±³", "´ëÇĞ(3³âÁ¦ ÀÌÇÏ)", "´ëÇĞ(4³âÁ¦ ÀÌ»ó)","´ëÇĞ¿øÀÌ»ó"))
-data$°¡±¸ÁÖ.È¥ÀÎ»óÅÂ<-factor(data$°¡±¸ÁÖ.È¥ÀÎ»óÅÂ, levels = c(1,2,3,4), labels = c("¹ÌÈ¥","¹è¿ìÀÚ ÀÖÀ½", "»çº°", "ÀÌÈ¥"))
-data$°¡±¸ÁÖ.Á¾»ç»óÁöÀ§<-factor(data$°¡±¸ÁÖ.Á¾»ç»óÁöÀ§, levels = c(1,2,3,4,5,6,7), labels = c("»ó¿ë±Ù·ÎÀÚ","ÀÓ½Ã.ÀÏ¿ë±Ù·ÎÀÚ","°í¿ë¿øÀÌ ÀÖ´Â ÀÚ¿µ¾÷ÀÚ", " °í¿ë¿øÀÌ ¾ø´Â ÀÚ¿µ¾÷ÀÚ", "¹«±Ş°¡Á·ºÀ»çÀÚ", "±âÅ¸ Á¾»çÀÚ", "¹«Á÷ÀÚ"))
-data$ÇöÀç.»ì°í.ÀÖ´Â.ÁÖÅÃÀÇ.Á¾·ù<-factor(data$ÇöÀç.»ì°í.ÀÖ´Â.ÁÖÅÃÀÇ.Á¾·ù, levels = c(1,2,3,4), labels = c("´Üµ¶ÁÖÅÃ","¾ÆÆÄÆ®","¿¬¸³ ¹× ´Ù¼¼´ëÁÖÅÃ", "±âÅ¸"))
-data$ÇöÀç.»ì°í.ÀÖ´Â.ÁÖÅÃÀÇ.ÀÔÁÖÇüÅÂ<-factor(data$ÇöÀç.»ì°í.ÀÖ´Â.ÁÖÅÃÀÇ.ÀÔÁÖÇüÅÂ, levels = c(1,2,3,4,5), labels = c("ÀÚ±âÁı","Àü¼¼","º¸Áõ±İ ÀÖ´Â ¿ù¼¼", "º¸Áõ±İ ¾ø´Â ¿ù¼¼", "±âÅ¸"))
-data$°¡±¸¿ø¼ö<-factor(data$°¡±¸¿ø¼ö,)
+data$ê°€êµ¬ì£¼.ì„±ë³„<-factor(data$ê°€êµ¬ì£¼.ì„±ë³„, levels = c(1,2), labels = c("ë‚¨ì","ì—¬ì") )
+data$ê°€êµ¬ì£¼.ë™ê±°ì—¬ë¶€<-factor(data$ê°€êµ¬ì£¼.ë™ê±°ì—¬ë¶€, levels = c(1,2,3,4), labels = c("1ì¸ ê°€êµ¬","ê°™ì´ ì‚´ê³ ìˆìŒ","ë”°ë¡œ ì‚´ê³ ìˆìŒ(í•™ì—…,ì·¨ì—…)", "ë”°ë¡œ ì‚´ê³ ìˆìŒ(êµ°ì¸"))
+data$ê°€êµ¬ì£¼.êµìœ¡ì •ë„_í•™êµ<-factor(data$ê°€êµ¬ì£¼.êµìœ¡ì •ë„_í•™êµ, levels = c(1,2,3,4,5,6,7), labels = c("ì•ˆë°›ìŒ","ì´ˆë“±í•™êµ","ì¤‘í•™êµ", "ê³ ë“±í•™êµ", "ëŒ€í•™(3ë…„ì œ ì´í•˜)", "ëŒ€í•™(4ë…„ì œ ì´ìƒ)","ëŒ€í•™ì›ì´ìƒ"))
+data$ê°€êµ¬ì£¼.í˜¼ì¸ìƒíƒœ<-factor(data$ê°€êµ¬ì£¼.í˜¼ì¸ìƒíƒœ, levels = c(1,2,3,4), labels = c("ë¯¸í˜¼","ë°°ìš°ì ìˆìŒ", "ì‚¬ë³„", "ì´í˜¼"))
+data$ê°€êµ¬ì£¼.ì¢…ì‚¬ìƒì§€ìœ„<-factor(data$ê°€êµ¬ì£¼.ì¢…ì‚¬ìƒì§€ìœ„, levels = c(1,2,3,4,5,6,7), labels = c("ìƒìš©ê·¼ë¡œì","ì„ì‹œ.ì¼ìš©ê·¼ë¡œì","ê³ ìš©ì›ì´ ìˆëŠ” ìì˜ì—…ì", " ê³ ìš©ì›ì´ ì—†ëŠ” ìì˜ì—…ì", "ë¬´ê¸‰ê°€ì¡±ë´‰ì‚¬ì", "ê¸°íƒ€ ì¢…ì‚¬ì", "ë¬´ì§ì"))
+data$í˜„ì¬.ì‚´ê³ .ìˆëŠ”.ì£¼íƒì˜.ì¢…ë¥˜<-factor(data$í˜„ì¬.ì‚´ê³ .ìˆëŠ”.ì£¼íƒì˜.ì¢…ë¥˜, levels = c(1,2,3,4), labels = c("ë‹¨ë…ì£¼íƒ","ì•„íŒŒíŠ¸","ì—°ë¦½ ë° ë‹¤ì„¸ëŒ€ì£¼íƒ", "ê¸°íƒ€"))
+data$í˜„ì¬.ì‚´ê³ .ìˆëŠ”.ì£¼íƒì˜.ì…ì£¼í˜•íƒœ<-factor(data$í˜„ì¬.ì‚´ê³ .ìˆëŠ”.ì£¼íƒì˜.ì…ì£¼í˜•íƒœ, levels = c(1,2,3,4,5), labels = c("ìê¸°ì§‘","ì „ì„¸","ë³´ì¦ê¸ˆ ìˆëŠ” ì›”ì„¸", "ë³´ì¦ê¸ˆ ì—†ëŠ” ì›”ì„¸", "ê¸°íƒ€"))
+data$ê°€êµ¬ì›ìˆ˜<-factor(data$ê°€êµ¬ì›ìˆ˜,)
 str(data)
 
-#¸¸³ªÀÌ
-data$°¡±¸ÁÖ.¸¸³ªÀÌ<-cut(data$°¡±¸ÁÖ.¸¸³ªÀÌ,br=10*(1.7:9.7))
-#sum(table(data$°¡±¸ÁÖ.¸¸³ªÀÌ))
+#ë§Œë‚˜ì´
+data$ê°€êµ¬ì£¼.ë§Œë‚˜ì´<-cut(data$ê°€êµ¬ì£¼.ë§Œë‚˜ì´,br=10*(1.7:9.7))
+#sum(table(data$ê°€êµ¬ì£¼.ë§Œë‚˜ì´))
 
-#Àü¿ë¸éÀû
-#summary(data$Àü¿ë¸éÀû)
-data$Àü¿ë¸éÀû<-cut(data$Àü¿ë¸éÀû,br=c(-Inf,50,67,85,Inf))
-#sum(table(data$Àü¿ë¸éÀû))
+#ì „ìš©ë©´ì 
+#summary(data$ì „ìš©ë©´ì )
+data$ì „ìš©ë©´ì <-cut(data$ì „ìš©ë©´ì ,br=c(-Inf,50,67,85,Inf))
+#sum(table(data$ì „ìš©ë©´ì ))
 
-#ÀÚ»êÃÑ¾×
-#summary(data$ÀÚ»êÃÑ¾×)
-data$ÀÚ»êÃÑ¾×<-cut(data$ÀÚ»êÃÑ¾×,br=c(-Inf,5586,16440,37000,Inf))
-#sum(table(data$ÀÚ»êÃÑ¾×))
+#ìì‚°ì´ì•¡
+#summary(data$ìì‚°ì´ì•¡)
+data$ìì‚°ì´ì•¡<-cut(data$ìì‚°ì´ì•¡,br=c(-Inf,5586,16440,37000,Inf))
+#sum(table(data$ìì‚°ì´ì•¡))
 
-#±İÀ¶ÀÚ»ê
-summary(data$±İÀ¶ÀÚ»ê)
-data$±İÀ¶ÀÚ»ê<-cut(data$±İÀ¶ÀÚ»ê,br=c(-Inf,1002,3550,9292,Inf))
-#sum(table(data$±İÀ¶ÀÚ»ê))
+#ê¸ˆìœµìì‚°
+summary(data$ê¸ˆìœµìì‚°)
+data$ê¸ˆìœµìì‚°<-cut(data$ê¸ˆìœµìì‚°,br=c(-Inf,1002,3550,9292,Inf))
+#sum(table(data$ê¸ˆìœµìì‚°))
 
-#ºÎÃ¤ÃÑ¾×
-summary(data$ºÎÃ¤ÃÑ¾×)
-data$ºÎÃ¤ÃÑ¾×<-cut(data$ºÎÃ¤ÃÑ¾×,br=c(-Inf,1,600,5360,Inf))
-#sum(table(data$ºÎÃ¤ÃÑ¾×))
+#ë¶€ì±„ì´ì•¡
+summary(data$ë¶€ì±„ì´ì•¡)
+data$ë¶€ì±„ì´ì•¡<-cut(data$ë¶€ì±„ì´ì•¡,br=c(-Inf,1,600,5360,Inf))
+#sum(table(data$ë¶€ì±„ì´ì•¡))
 
 data.trans<- as(data,"transactions")
 inspect(data.trans[1:10])
@@ -49,7 +49,7 @@ class(data.trans)
 str(data.trans@transactionInfo)
 str(data.trans@itemInfo)
 
-rule<-apriori(data.trans, parameter = list(support=0.1, confidence=1.0)) #default°ªÀº 0.1, 0.8
+rule<-apriori(data.trans, parameter = list(support=0.1, confidence=1.0)) #defaultê°’ì€ 0.1, 0.8
 rule
 summary(rule)
 inspect(rule)
@@ -73,25 +73,25 @@ inspect(ecl[1:5])
 data<-iris
 set.seed(1)
 index<-sample(1:150,0.8*150)
-train<-data[index,] #120°³
-test<-data[-index,] #30°³
+train<-data[index,] #120ê°œ
+test<-data[-index,] #30ê°œ
 test$Species
 my_knn <-function(k)
 {
   result<-c()
   for(i in 1:30)
   {
-    #°Å¸®
+    #ê±°ë¦¬
     a<-(train[,1]-test[i,1])^2
     b<-(train[,2]-test[i,2])^2
     c<-(train[,3]-test[i,3])^2
     d<-(train[,4]-test[i,4])^2
     distance<-sqrt(a+b+c+d)
-    #ÂªÀº°Å¸® index Ã£±â
-    distanceRank<-rank(distance,ties.method = "min") #ÀÛÀº¼ø¼­´ë·Î Rank
+    #ì§§ì€ê±°ë¦¬ index ì°¾ê¸°
+    distanceRank<-rank(distance,ties.method = "min") #ì‘ì€ìˆœì„œëŒ€ë¡œ Rank
     my_index<-c()
-    my_index<-which(distanceRank<=k) #ÀÛÀº °ªµéÀÇ index¸¦ ÀúÀå.
-    #result¿¡ level°ª ÀúÀå.
+    my_index<-which(distanceRank<=k) #ì‘ì€ ê°’ë“¤ì˜ indexë¥¼ ì €ì¥.
+    #resultì— levelê°’ ì €ì¥.
     result<-c(result,as.numeric(which(max(table(train[my_index,5]))==table(train[my_index,5]))))
   }
   result<-factor(result,levels=c(1:3),labels=c("setosa","versicolor","virginica"))
