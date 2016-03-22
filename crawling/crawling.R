@@ -1,5 +1,5 @@
-#10ÁÖÂ÷ °úÁ¦
-#¶Ñ·¹Áê¸£ Å©·Ñ¸µ
+#10ì£¼ì°¨ ê³¼ì œ
+#ëšœë ˆì¥¬ë¥´ í¬ë¡¤ë§
 #page 1:137
 
 library(stringr)
@@ -7,7 +7,7 @@ library(readr)
 library(foreach)
 library(doSNOW)
 
-registerDoSNOW(makeCluster(2, type = "SOCK")) #ÄÚ¾î 2°³¸¦ ¸¸µé¾î¶ó
+registerDoSNOW(makeCluster(2, type = "SOCK")) #ì½”ì–´ 2ê°œë¥¼ ë§Œë“¤ì–´ë¼
 getDoParWorkers()
 
 func<-function()
@@ -15,37 +15,37 @@ func<-function()
   #schema
   result<-as.data.frame(matrix(ncol=5))
   # for(i in 1:137)
-  foreach(i=1:137) %do% #dopar·Î ÄÚ¾î ´Ù ¾µ·Á°íÇÏ´Âµ¥ ¿Ö str_detect¸¦ Ã£À»¼ö ¾ø´Ù°í ³ª¿Ã±î¿ä?
+  foreach(i=1:137) %do% #doparë¡œ ì½”ì–´ ë‹¤ ì“¸ë ¤ê³ í•˜ëŠ”ë° ì™œ str_detectë¥¼ ì°¾ì„ìˆ˜ ì—†ë‹¤ê³  ë‚˜ì˜¬ê¹Œìš”?
   {
     url<-paste0("http://www.tlj.co.kr/store/search.asp?page=",i)
     HTML_code<-read_lines(url)
     HTML_code<-`Encoding<-`(HTML_code,"euc-kr")
-    #À§µµ, °æµµ
-    #³»°¡ ¶Ñ·¹ÁÖ¸£ °ü·Ã »çÀÌÆ®¸¦ ¸¸µç´Ù¸é À§µµ °æµµµµ ÇÊ¿äÇÒ¶§°¡ ÀÖ°ÚÁö?
+    #ìœ„ë„, ê²½ë„
+    #ë‚´ê°€ ëšœë ˆì£¼ë¥´ ê´€ë ¨ ì‚¬ì´íŠ¸ë¥¼ ë§Œë“ ë‹¤ë©´ ìœ„ë„ ê²½ë„ë„ í•„ìš”í• ë•Œê°€ ìˆê² ì§€?
     locate<-HTML_code[str_detect(HTML_code,"data-lat=")]
     locate<-gsub("\t","",locate)
     locate<-gsub("<.*?data-lat=\"","",locate)
     locate<-gsub("\".*?=\\\"",", ",locate)
     locate<-gsub(", \\\">","",locate)
-    
-    #ÁöÁ¡ ÀÌ¸§
+    if(i==133){locate<-gsub(", /.*?>","",locate)}
+    #ì§€ì  ì´ë¦„
     branch<-HTML_code[str_detect(HTML_code,"\"listName_")]
     branch<-gsub("<.*?>","",branch)
     branch<-gsub("\t","",branch)
     
-    #µµ·Î¸í ÁÖ¼Ò
+    #ë„ë¡œëª… ì£¼ì†Œ
     index<-str_detect(HTML_code,"\"listAddrD_")
     index<-which(index==TRUE)+1
     doro<-HTML_code[index]
     doro<-gsub("\t","",doro)
     
-    #Áö¹ø ÁÖ¼Ò (ÇÊ¿äÇÑ°¡?)
+    #ì§€ë²ˆ ì£¼ì†Œ (í•„ìš”í•œê°€?)
     index<-str_detect(HTML_code,"\"listAddrJ_")
     index<-which(index==TRUE)+1
     addr<-HTML_code[index]
     addr<-gsub("\t","",addr)
     
-    #ÀüÈ­¹øÈ£
+    #ì „í™”ë²ˆí˜¸
     tel<-HTML_code[str_detect(HTML_code,"\"listTel_")]
     tel<-gsub("<.*?>","",tel)
     tel<-gsub("\t","",tel)
@@ -53,17 +53,17 @@ func<-function()
     
     my_matrix<-cbind(as.matrix(locate,ncol=1),as.matrix(branch,ncol=1),as.matrix(doro,ncol=1),
                      as.matrix(addr,ncol=1),as.matrix(tel,ncol=1))
-    result<-rbind(result,my_matrix) #À§µµ°¡ Á¦ÀÏ ¾ÕÀÌ¸é ÀÌ»óÇÑ°¡..?
+    result<-rbind(result,my_matrix) #ìœ„ë„ê°€ ì œì¼ ì•ì´ë©´ ì´ìƒí•œê°€..?
   }
   colnames(result)<-c("Locate","Name","Address1","Address2","Phone number")
   View(result)
 }
 system.time(func())
 
-#±×³É for¹® µ¹·ÈÀ»¶§
-# »ç¿ëÀÚ  ½Ã½ºÅÛ elapsed 
+#ê·¸ëƒ¥ forë¬¸ ëŒë ¸ì„ë•Œ
+# ì‚¬ìš©ì  ì‹œìŠ¤í…œ elapsed 
 # 9.03   53.05   66.74 
 
-# foreachµ¹·ÈÀ»¶§..º°·Î Â÷ÀÌ ¾ø³×? Àß ¾ÈµÈ°Ç°¡?
-# »ç¿ëÀÚ  ½Ã½ºÅÛ elapsed 
+# foreachëŒë ¸ì„ë•Œ..ë³„ë¡œ ì°¨ì´ ì—†ë„¤? ì˜ ì•ˆëœê±´ê°€?
+# ì‚¬ìš©ì  ì‹œìŠ¤í…œ elapsed 
 # 8.34   50.25   59.04 
