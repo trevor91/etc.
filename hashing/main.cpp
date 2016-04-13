@@ -1,6 +1,3 @@
-/*	2015.11 ÀÚ·á±¸Á¶ 2Â÷ ÇÁ·ÎÁ§Æ®
-	ÇĞ»ıÁ¤º¸ °ü¸® ÇÁ·Î±×·¥ ¼³°è
-	ÄÄÇ»ÅÍÁ¤º¸°øÇĞ°ú 12121537 ÀÌÁ¦Çü*/
 #include "Hash.h"
 #include <iostream>
 #include <fstream>
@@ -9,16 +6,16 @@ using namespace std;
 
 int main()
 {
-	int n; //¹è¿­ Å©±â
-	int m; //ÇĞ»ı ¼ö
-	int q; //nº¸´Ù ÀÛÀº ¼Ò¼ö
-	string name; //ÀÔ·Â¹ŞÀ» ÆÄÀÏ ÀÌ¸§
+	int n; //ë°°ì—´ í¬ê¸°
+	int m; //í•™ìƒ ìˆ˜
+	int q; //në³´ë‹¤ ì‘ì€ ì†Œìˆ˜
+	string name; //ì…ë ¥ë°›ì„ íŒŒì¼ ì´ë¦„
 	cin >> name;
-	ifstream dataFile(name); //ÆÄÀÏ ÀĞ±â
+	ifstream dataFile(name); //íŒŒì¼ ì½ê¸°
 	dataFile >> n >> m >> q;
 	Hash* temp = new Hash(n, m, q);
 	
-	int s=0, t=0; //s=ÇĞ¹ø, t=ÇĞÁ¡
+	int s=0, t=0; //s=í•™ë²ˆ, t=í•™ì 
 	string e=""; //e=mail
 	for (int i = 0; i < m; ++i)
 	{
