@@ -14,7 +14,7 @@
               "name": "경제",
               "url": "#",
               "children": [
-                {"name": "경원선 개통", "size": 3812, "url": "http://www.google.com"},
+                {"name": "경원선 개통", "size": 3812, "url": "eventList/test.html"},
                 {"name": "경의선 개통", "size": 6714},
                 {"name": "경인선 개통", "size": 743},
                 {"name": "방곡령", "size": 6714}
