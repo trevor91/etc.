@@ -10,7 +10,7 @@
             {
               "name": "경제",
               "children": [
-                {"name": "경원선 개통", "size": 3812},
+                {"name": "경원선 개통", "size": 3812, "url": "www.google.com"},
                 {"name": "경의선 개통", "size": 6714},
                 {"name": "경인선 개통", "size": 743},
                 {"name": "방곡령", "size": 6714}
