@@ -74,7 +74,7 @@
                 {"name": "러시아와 통상조약", "size": 3812},
                 {"name": "삼국간섭", "size": 3812},
                 {"name": "수신사 파견", "size": 3812},
-                {"name": "아관파천", "size": 3812, "url": "eventList/아관파천.html"},
+                {"name": "아관파천.", "size": 3812, "url": "eventList/아관파천.html"},
                 {"name": "영국과의 수호조약", "size": 3812},
                 {"name": "영선사 파견", "size": 3812},
                 {"name": "일본군의 경복궁 점령", "size": 3812},
@@ -105,7 +105,7 @@
                 {"name": "서원철폐", "size": 3812},
                 {"name": "신사위정척사운동", "size": 3812},
                 {"name": "을미개혁", "size": 3812},
-                {"name": "을미사변(명성황후 시해사건)", "size": 3812, "url": "eventList/을미사변.html"},
+                {"name": "을미사변.(명성황후 시해사건)", "size": 3812, "url": "eventList/을미사변.html"},
                 {"name": "진주농민봉기", "size": 3812},
                 {"name": "태극기 제정", "size": 3812},
                 {"name": "통리기무아문의 설치", "size": 3812}
@@ -157,9 +157,9 @@
               "name": "독립운동",
               "url": "#",
               "children": [
-                {"name": "13도 창의군", "size": 3812, "url": "eventList/13도 창의군.html"},
+                {"name": "13도 창의군.", "size": 3812, "url": "eventList/13도 창의군.html"},
                 {"name": "스티븐스 저격사건", "size": 3812},
-                {"name": "시일야방성대곡 발표", "size": 3812, "url": "eventList/시일야방성대곡 발표.html"},
+                {"name": "시일야방성대곡 발표.", "size": 3812, "url": "eventList/시일야방성대곡 발표.html"},
                 {"name": "애국 계몽 운동", "size": 3812},
                 {"name": "을사의병", "size": 3812},
                 {"name": "정미의병", "size": 3812},
@@ -187,7 +187,7 @@
               "name": "외교/국제",
               "url": "#",
               "children": [
-                {"name": "가쓰라·태프트 밀약", "size": 3812, "url": "eventList/가쓰라·태프트 밀약.html"},
+                {"name": "가쓰라·태프트 밀약.", "size": 3812, "url": "eventList/가쓰라·태프트 밀약.html"},
                 {"name": "간도 협약", "size": 3812},
                 {"name": "애국동지대표대회", "size": 3812},
                 {"name": "을사조약", "size": 3812},
@@ -200,7 +200,7 @@
               "name": "일제",
               "url": "#",
               "children": [
-                {"name": "을사오적", "size": 3812, "url": "eventList/을사오적.html"}
+                {"name": "을사오적.", "size": 3812, "url": "eventList/을사오적.html"}
                 ]
             },
             {
@@ -229,9 +229,9 @@
               "name": "독립운동",
               "url": "#",
               "children": [
-                {"name": "105인사건", "size": 3812, "url": "eventList/105인 사건.html"},
+                {"name": "105인사건.", "size": 3812, "url": "eventList/105인 사건.html"},
                 {"name": "2·8 독립 선언", "size": 3812},
-                {"name": "3·1운동", "size": 3812, "url": "eventList/3_1운동.html"},
+                {"name": "3·1운동.", "size": 3812, "url": "eventList/3_1운동.html"},
                 {"name": "민족자결주의", "size": 3812},
                 {"name": "안악사건", "size": 3812},
                 {"name": "파리장서사건", "size": 3812}
@@ -266,7 +266,7 @@
               "url": "#",
               "children": [
                 {"name": "사찰령 실시", "size": 3812},
-                {"name": "조선총독부의 설치", "size": 3812, "url": "eventList/조선총독부의 설치.html"},
+                {"name": "조선총독부의 설치.", "size": 3812, "url": "eventList/조선총독부의 설치.html"},
                 {"name": "조선태형령", "size": 3812}
                 ]
             }
@@ -319,7 +319,7 @@
                 {"name": "자유시 참변", "size": 3812},
                 {"name": "자치 운동", "size": 3812},
                 {"name": "정우회 선언", "size": 3812},
-                {"name": "청산리대첩", "size": 3812, "url": "eventList/청산리.html"}
+                {"name": "청산리대첩.", "size": 3812, "url": "eventList/청산리.html"}
                 ]
             },
             {
